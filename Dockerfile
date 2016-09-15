@@ -1,4 +1,6 @@
-FROM tutum/apache-php MAINTAINER Bjorn Waller bjorn@waller.nu RUN apt-get update
+FROM tutum/apache-php 
+MAINTAINER Fabian Clerbois fabian@bowlman.org 
+RUN apt-get update
 RUN apt-get install -y wget \
                        zip
 RUN wget http://www.kendar.org/?p=/dotnet/phpnuget/phpnuget.zip -O phpnuget.zip
