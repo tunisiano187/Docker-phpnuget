@@ -11,5 +11,5 @@ RUN apt-get install -y apache2 \
                        zip
 RUN wget https://www.kendar.org/?p=/dotnet/phpnuget/phpnuget.zip -O phpnuget.zip
 RUN unzip phpnuget.zip
-RUN mv src phpnuget
+RUN mv src/* .
 VOLUME /app/phpnuget/data
