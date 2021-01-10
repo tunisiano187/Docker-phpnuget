@@ -1,6 +1,7 @@
 FROM ubuntu:latest
 MAINTAINER Fabian Clerbois fabian@bowlman.org 
 RUN apt-get update
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tzdata
 RUN apt-get install -y apache2 \
                        php \
                        php-cli \
