@@ -9,6 +9,7 @@ RUN apt-get install -y apache2 \
                        mariadb-server \
                        wget \
                        zip
+RUN a2enmod rewrite && service apache2 restart
 RUN wget https://www.kendar.org/?p=/dotnet/phpnuget/phpnuget.zip -O phpnuget.zip
 RUN unzip phpnuget.zip
 RUN mv src/* .
