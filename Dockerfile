@@ -26,7 +26,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends tzdata && apt-g
                        zip && rm -rf /var/www/html && \
                        ln -sf /app /var/www/html && \
                        apt-get -y update && \
-                       apt-get install -q -y python3-certbot-apache && \
+		       apt-get install -q -y python3-certbot-apache && \
                        apt-get clean && \
                        rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
