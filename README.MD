@@ -32,7 +32,8 @@ Environmental Variables:
 
 6. Change settings and hit "Install".
 
-Note:
+
+| Notes |  |
 | ------------- | ------------- |
 | Nb! Leave "Application Path:" | as is (phpnuget) |
 | Field "php-cgi.exe (for IIS):" | could be emptied. |
