@@ -22,8 +22,6 @@ Note:
 Nb! Leave "Application Path:" as is (phpnuget)
 Field "php-cgi.exe (for IIS):" could be emptied.
 
-7. Login at http://\<yourhost\>
-
-and start uploading packages.
+7. Login at http://\<yourhost\> and start uploading packages.
 
 Happy nugetting!
