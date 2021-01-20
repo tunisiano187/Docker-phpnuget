@@ -21,9 +21,9 @@ Environmental Variables:
 
 | Varible  | Value |
 | ------------- | ------------- |
-| VHOST1 | This is to specify which virutalhost entry I want to have this work on. |
+| VHOST1 | This is to specify which virutalhost the SSL should be applied to. |
 | DOMAINS | This is to specify all the domains that should be issued. |
-| STAGE | Not sure if this works currently, but is supposed to only pull staging certifcates. |
+| STAGE | May Not work, but is supposed to only pull staging certifcates. |
 | WEBMASTER_MAIL | Is a required field for Let's Encrypt. |
 
 5. Point your web browser to http://\<yourhost\>/setup.php
