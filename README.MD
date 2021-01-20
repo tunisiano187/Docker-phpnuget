@@ -16,6 +16,16 @@ docker build -t myorganziation/phpnugetv4.1 .
 ```
 docker run -d -p 80:80  -p 443:443 -e DOMAINS="chocolatey.my.domain.net" -e VHOST1="chocolatey.my.domain.net" -e WEBMASTER_MAIL="Me@my.domain.net" -e STAGE="false" -v /choco/:/app/phpnuget/data/ --dns 1.1.1.1 --name MyPHPNuGETV2 myorganziation/phpnugetv4.1
 ```
+
+Environmental Variables:
+
+| Varible  | Value |
+| ------------- | ------------- |
+| VHOST1 | This is to specify which virutalhost entry I want to have this work on. |
+| DOMAINS | This is to specify all the domains that should be issued. |
+| STAGE | Not sure if this works currently, but is supposed to only pull staging certifcates. |
+| WEBMASTER_MAIL | Is a required field for Let's Encrypt. |
+
 5. Point your web browser to http://\<yourhost\>/setup.php
 
 6. Change settings and hit "Install".
