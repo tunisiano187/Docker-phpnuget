@@ -30,10 +30,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends tzdata && apt-g
                        apt-get -y update && \
 		       apt-get install -q -y python3-certbot-apache && \
                        apt-get clean && \
-                       rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
-		       sed -i "s/memory_limit = 8M/memory_limit = 7048M/g" /etc/php/7.4/apache2/php.ini && \
-		       sed -i "s/post_max_size = 8M/post_max_size = 7048M/g" /etc/php/7.4/apache2/php.ini
-
+                       rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+		       
+RUN sed -i "s/memory_limit = 8M/memory_limit = 7048M/g" /etc/php/7.4/apache2/php.ini &&  sed -i "s/post_max_size = 8M/post_max_size = 7048M/g" /etc/php/7.4/apache2/php.ini
+		       
 # Configure Apache
 RUN echo "ServerName localhost" >> /etc/apache2/conf-enabled/hostname.conf && \
     a2enmod ssl headers xml2enc rewrite usertrack  && \
