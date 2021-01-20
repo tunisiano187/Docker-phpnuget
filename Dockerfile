@@ -38,9 +38,9 @@ RUN echo "ServerName localhost" >> /etc/apache2/conf-enabled/hostname.conf && \
 
 
 # Setting up PHPNuget
-COPY index.html   /app/
+COPY templates/index.html   /app/
 RUN wget https://www.kendar.org/?p=/dotnet/phpnuget/phpnuget.4.1.0.0.zip -O phpnuget.zip &&  unzip phpnuget.zip -d /app/phpnuget && chmod 755 -R /app/phpnuget/data
-COPY .htaccess web.config ManagedFusion.Rewriter.txt /app/phpnuget/
+COPY templates/.htaccess templates/web.config templates/ManagedFusion.Rewriter.txt /app/phpnuget/
 
 
 # configure runit
