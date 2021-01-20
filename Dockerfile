@@ -35,7 +35,7 @@ RUN echo "ServerName localhost" >> /etc/apache2/conf-enabled/hostname.conf && \
     a2enmod ssl headers xml2enc rewrite usertrack  && \
     mkdir -p /var/lock/apache2 && \
     mkdir -p /var/run/apache2
-
+COPY templates/default-ssl.conf /etc/apache2/sites-enabled/
 
 # Setting up PHPNuget
 COPY templates/index.html   /app/

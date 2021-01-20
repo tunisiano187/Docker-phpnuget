@@ -1,7 +1,7 @@
 #!/bin/bash
 chown www-data:www-data /app -R
 echo $VHOST1
-sed -i "s/_default_/$VHOST1/g" /etc/apache2/sites-available/default-ssl.conf
+#sed -i "s/_default_/$VHOST1/g" /etc/apache2/sites-available/default-ssl.conf
 sed -i "s/ServerAdmin webmaster@localhost/ServerName $VHOST1/g" /etc/apache2/sites-available/default-ssl.conf
 sed -i "s/ServerAdmin webmaster@localhost/ServerAlias $VHOST1/g" /etc/apache2/sites-available/default-ssl.conf
 
