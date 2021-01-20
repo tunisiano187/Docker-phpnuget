@@ -21,8 +21,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends tzdata && apt-g
                        software-properties-common \
                        php-cli \
                        php-mysql \
-		       php-zip \
-		       php-xml\
                        mariadb-server \
                        wget \
                        zip && rm -rf /var/www/html && \
