@@ -2,6 +2,7 @@ RewriteEngine On
 
 RewriteBase /
 
+php_value memory_limit 7048M
 
 #API V1
 
