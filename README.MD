@@ -17,6 +17,8 @@ docker build -t myorganziation/phpnugetv4.1 .
 docker run -d -p 80:80  -p 443:443 -e DOMAINS="chocolatey.my.domain.net" -e VHOST1="chocolatey.my.domain.net" -e WEBMASTER_MAIL="Me@my.domain.net" -e STAGE="false" -v /choco/:/app/phpnuget/data/ --dns 1.1.1.1 --name MyPHPNuGETV2 myorganziation/phpnugetv4.1
 ```
 
+During the first few minutes the site will load a temporary SSL while Let'sEncrypt Fetches a live certifcate. Simply refresh the page after a few minutes to see an updated cert.
+
 Environmental Variables:
 
 | Varible  | Value |
