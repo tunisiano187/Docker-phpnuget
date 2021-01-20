@@ -1,12 +1,26 @@
-<!DOCTYPE html>
 <html>
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .imgbox {
+            display: grid;
+            height: 100%;
+        }
+        .center-fit {
+            max-width: 100%;
+            max-height: 100vh;
+            margin: auto;
+        }
+    </style>
+</head>
 <body>
-
-
-<p><a href="/phpnuget">
-<img src="https://chocolatey.org/content/images/logo_square.svg" alt="Chocolatey" width="80%" height="90%">
-</a></p>
-
+    <a href="/phpnuget">
+        <div class="imgbox">
+            <img class="center-fit" alt="Chocolatey" src="https://chocolatey.org/content/images/logo_square.svg">
+        </div>
+    </a>
 </body>
 </html>
-
