@@ -3,6 +3,8 @@ RewriteEngine On
 RewriteBase /
 
 php_value memory_limit 7048M
+php_value post_max_size 7048M
+php_value upload_max_filesize 7048M
 
 #API V1
 
