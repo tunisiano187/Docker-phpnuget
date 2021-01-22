@@ -1,5 +1,5 @@
 FROM ubuntu:latest
-MAINTAINER MarkProminic <mark.gilbert@prominic.net>
+MAINTAINER Fabian Clerbois <helpdesk.choc@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV LETSENCRYPT_HOME /etc/letsencrypt
