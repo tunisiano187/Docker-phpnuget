@@ -2,7 +2,7 @@ Host your own nuget feed with this docker image running phpnuget from kendar.org
 
 1. Git the Project to your local machine:
 ```
-git clone https://github.com/MarkProminic/Docker-phpnuget.git
+git clone https://github.com/tunisiano187/Docker-phpnuget.git
 ```
 2. Enter the project Directory
 ```
@@ -44,6 +44,6 @@ Happy nugetting!
 
 Credit where due:
 
-Base Dockerfile Idea: https://github.com/tunisiano187/Docker-phpnuget
+Project updated by: MarkProminic
 
 Let'sEncrypt on Apache inside of Docker: https://github.com/BirgerK/docker-apache-letsencrypt
