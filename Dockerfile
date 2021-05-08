@@ -2,7 +2,7 @@ FROM ubuntu:latest
 MAINTAINER MarkProminic <mark.gilbert@prominic.net>
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV LETSENCRYPT_HOME /etc/letsencrypt
+ENV LETSENCRYPT_HOME /app/phpnuget/data/letsencrypt
 ENV DOMAINS ""
 ENV WEBMASTER_MAIL ""
 ENV SSLCRT fullchain.pem
@@ -55,6 +55,7 @@ RUN  service apache2 restart
 
 # Finalize Docker Configurations
 EXPOSE 80 443
-VOLUME [ "/app/phpnuget/data", "$LETSENCRYPT_HOME"]
+VOLUME [ "/app/phpnuget/data"]
+#, "$LETSENCRYPT_HOME"
 COPY run.sh /run.sh
 CMD ["./run.sh"]
