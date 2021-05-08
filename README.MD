@@ -25,7 +25,16 @@ Naming your files privkey.pem and fullchain.pem  will allow you to run the conta
 docker run -d -p 80:80  -p 443:443 -e DOMAINS="chocolatey.my.domain.net" -e VHOST1="chocolatey.my.domain.net" -e WEBMASTER_MAIL="Me@my.domain.net" -e STAGING="false" -v /choco/:/app/phpnuget/data/ -e SSLCRT=fullchain.pem -e SSLCRT=privkey.pem --dns 1.1.1.1 --name MyPHPNuGETV2 myorganziation/phpnugetv4.1
 ```
 
-During the first few minutes the site will load a temporary SSL while Let'sEncrypt Fetches a live certifcate. Simply refresh the page after a few minutes to see an updated cert.
+During the first few minutes the site will load a temporary SSL while Let's Encrypt Fetches a live certifcate. Simply refresh the page after a few minutes to see an updated cert.
+
+If you need to store large static files you can mount a host path as follows:
+
+```
+docker run -d -p 80:80  -p 443:443  -v /static/:/app/static/  -e DOMAINS="chocolatey.my.domain.net" -e VHOST1="chocolatey.my.domain.net" -e WEBMASTER_MAIL="Me@my.domain.net" -e STAGING="false" -v /choco/:/app/phpnuget/data/ -e SSLCRT=fullchain.pem -e SSLCRT=privkey.pem --dns 1.1.1.1 --name MyPHPNuGETV2 myorganziation/phpnugetv4.1
+```
+
+Where /static is a path on the host and /app is symlinked to /var/www/html in the container.
+
 
 Environmental Variables:
 
