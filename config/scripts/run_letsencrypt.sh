@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## Use the User provided cert instead of running Let'sEncrypt
-if [test -f "/app/phpnuget/data/$SSLCRT"]  && [test -f "/app/phpnuget/data/$SSLKEY"] ; then
+if test -f "/app/phpnuget/data/$SSLCRT"  && test -f "/app/phpnuget/data/$SSLKEY" ; then
     echo "$SSLCRT exists."
 else
     if (! [ -z "$STAGING" ]) then
