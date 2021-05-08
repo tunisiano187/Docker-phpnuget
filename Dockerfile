@@ -55,7 +55,7 @@ RUN  service apache2 restart
 
 # Finalize Docker Configurations
 EXPOSE 80 443
-VOLUME [ "/app/phpnuget"]
+#VOLUME [ "/app/phpnuget"]
 #, "$LETSENCRYPT_HOME"
 COPY run.sh /run.sh
 CMD ["./run.sh"]
