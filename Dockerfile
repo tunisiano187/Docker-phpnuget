@@ -5,6 +5,8 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV LETSENCRYPT_HOME /etc/letsencrypt
 ENV DOMAINS ""
 ENV WEBMASTER_MAIL ""
+ENV SSLCRT fullchain.pem
+ENV SSLKEY privkey.pem
 
 
 # Manually set the apache environment variables in order to get apache to work immediately.
