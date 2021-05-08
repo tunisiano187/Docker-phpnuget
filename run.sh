@@ -15,7 +15,7 @@ fi
 
 
 
-if test -f "/app/phpnuget/data/$SSLCRT"  && test -f "/app/phpnuget/data/$SSLKEY" ; then
+if test -f "/app/phpnuget/data/ssl/$SSLCRT"  && test -f "/app/phpnuget/data/ssl/$SSLKEY" ; then
     sed -i "s/\/etc\/ssl\/certs\/ssl-cert-snakeoil.pem/\/app\/phpnuget\/data\/$SSLCRT/g" /etc/apache2/sites-available/default-ssl.conf
     sed -i "s/\/etc\/ssl\/private\/ssl-cert-snakeoil.key/\/app\/phpnuget\/data\/$SSLKEY/g" /etc/apache2/sites-available/default-ssl.conf
 else
