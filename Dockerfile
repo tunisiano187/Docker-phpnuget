@@ -2,9 +2,11 @@ FROM ubuntu:latest
 MAINTAINER Fabian Clerbois <helpdesk.choc@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV LETSENCRYPT_HOME /etc/letsencrypt
+ENV LETSENCRYPT_HOME /app/phpnuget/data/letsencrypt
 ENV DOMAINS ""
 ENV WEBMASTER_MAIL ""
+ENV SSLCRT fullchain.pem
+ENV SSLKEY privkey.pem
 
 
 # Manually set the apache environment variables in order to get apache to work immediately.
@@ -53,6 +55,7 @@ RUN  service apache2 restart
 
 # Finalize Docker Configurations
 EXPOSE 80 443
-VOLUME [ "/app/phpnuget/data", "$LETSENCRYPT_HOME"]
+#VOLUME [ "/app/phpnuget"]
+#, "$LETSENCRYPT_HOME"
 COPY run.sh /run.sh
 CMD ["./run.sh"]

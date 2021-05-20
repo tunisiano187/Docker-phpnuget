@@ -17,7 +17,24 @@ docker build -t myorganziation/phpnugetv4.1 .
 docker run -d -p 80:80  -p 443:443 -e DOMAINS="chocolatey.my.domain.net" -e VHOST1="chocolatey.my.domain.net" -e WEBMASTER_MAIL="Me@my.domain.net" -e STAGING="false" -v /choco/:/app/phpnuget/data/ --dns 1.1.1.1 --name MyPHPNuGETV2 myorganziation/phpnugetv4.1
 ```
 
-During the first few minutes the site will load a temporary SSL while Let'sEncrypt Fetches a live certifcate. Simply refresh the page after a few minutes to see an updated cert.
+If you want to use your own SSL cert and key, then you need to place them inside the path that you have mounted as the data store. in the Above example it would be  /choco/ssl 
+
+Naming your files privkey.pem and fullchain.pem  will allow you to run the container without specifying the environmental variables. If you need to specify the names, use the Environmental variabels as decribed below.
+
+```
+docker run -d -p 80:80  -p 443:443 -e DOMAINS="chocolatey.my.domain.net" -e VHOST1="chocolatey.my.domain.net" -e WEBMASTER_MAIL="Me@my.domain.net" -e STAGING="false" -v /choco/:/app/phpnuget/data/ -e SSLCRT=fullchain.pem -e SSLCRT=privkey.pem --dns 1.1.1.1 --name MyPHPNuGETV2 myorganziation/phpnugetv4.1
+```
+
+During the first few minutes the site will load a temporary SSL while Let's Encrypt Fetches a live certifcate. Simply refresh the page after a few minutes to see an updated cert.
+
+If you need to store large static files you can mount a host path as follows:
+
+```
+docker run -d -p 80:80  -p 443:443-e DOMAINS="chocolatey.my.domain.net" -e VHOST1="chocolatey.my.domain.net" -e WEBMASTER_MAIL="Me@my.domain.net" -e STAGING="false" -v /choco/:/app/phpnuget/ -v /data/:/app/phpnuget/data/ -v /static/:/app/static/ -e STAGING="true"  --dns 1.1.1.1 --name MyPHPNuGETV2 myorganziation/phpnugetv4.1
+```
+
+Where /static is a path on the host and /app is symlinked to /var/www/html in the container.
+
 
 Environmental Variables:
 
@@ -25,8 +42,11 @@ Environmental Variables:
 | ------------- | ------------- |
 | VHOST1 | This is to specify which virutalhost the SSL should be applied to. |
 | DOMAINS | This is to specify all the domains that should be issued. |
-| STAGING | May Not work, I think due a variable type, attempted fix this version, but is supposed to only pull staging certifcates. |
+| STAGING | Supposed to only pull staging certifcates. |
 | WEBMASTER_MAIL | Is a required field for Let's Encrypt. |
+| SSLCRT | file name of a PEM formatted SSL CERT to use in lieu of Let's Encrypt, if using the /choco directory above, then place it inside of that folder ssl/|
+| SSLKEY | file name of a PEM formatted SSL KEY to use in lieu of Let's Encrypt, if using the /choco directory above, then place it inside of that folder plus ssl/ |
+
 
 5. Point your web browser to http://\<yourhost\>/setup.php
 
